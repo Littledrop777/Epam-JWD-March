@@ -2,7 +2,7 @@ package com.epam.jwd;
 
 import java.util.Objects;
 
-public class Square implements Shape {
+public class Square implements Figure{
     private Point a;
     private Point b;
     private Point c;
@@ -45,5 +45,16 @@ public class Square implements Shape {
                 "), c=(" + c.getX() + ", " + c.getY()+
                 "), d=(" + d.getX() + ", " + d.getY()+
                 ")}";
+    }
+
+
+    @Override
+    public double square() {
+        return 0;
+    }
+
+    @Override
+    public boolean isExist() {
+        return false;
     }
 }

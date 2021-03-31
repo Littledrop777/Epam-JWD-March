@@ -2,7 +2,7 @@ package com.epam.jwd;
 
 import java.util.Objects;
 
-public class Triangle implements Shape {
+public class Triangle implements Figure {
     private Point a;
     private Point b;
     private Point c;
@@ -12,38 +12,19 @@ public class Triangle implements Shape {
         this.b = b;
         this.c = c;
     }
-public double calcSquare(){
-   // s = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2;
-return 0;
 
-}
-    public boolean isTriangle(){
-
-        int x1;
-        int y1;
-
-        int x2;
-        int y2;
-
-        int x3;
-        int y3;
-
-        int s;
-
-        x1 = 2;
-        y1 = 5;
-
-        x2 = 4;
-        y2 = 7;
-
-        x3 = 6;
-        y3 = 9;
-
-        s = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2;
-
-        return s!=0;
-
+    public double square() {
+        double result;
+        // s = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2;
+        result = Math.abs((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())) / 2;
+        return result;
     }
+
+    @Override
+    public boolean isExist() {
+        return square()!=0;
+    }
+
 
     @Override
     public boolean isShape() {

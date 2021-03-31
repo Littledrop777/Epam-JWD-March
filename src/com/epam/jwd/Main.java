@@ -36,22 +36,23 @@ public class Main {
             }
         }
 
-
-        Shape[] triangles = new Triangle[2];
+        Figure[] triangles = new Triangle[2];
         triangles[0] = shape.createTriangle(
                 shape.createPoint(-2, 7), shape.createPoint(3, 5), shape.createPoint(2, 9));
         triangles[1] = shape.createTriangle(
                 shape.createPoint(-4, -1), shape.createPoint(6, -8), shape.createPoint(0, 5));
 
-        for (Shape triangle : triangles) {
+        for (Figure triangle : triangles) {
             if (!triangle.isShape()) {
                 LOGGER.error("Is not a figure");
-            } else {
+            } else if(triangle.isExist()){
+                LOGGER.error(String.format("Triangle %s cannot exists", triangle));
+            }else{
                 LOGGER.info(triangle);
             }
         }
 
-        Shape[] squares = new Square[1];
+        Figure[] squares = new Square[1];
         squares[0] = shape.createSquare(
                 shape.createPoint(0, 9), shape.createPoint(-2, 4),
                 shape.createPoint(5, -11), shape.createPoint(-3, -3));

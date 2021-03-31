@@ -16,6 +16,18 @@ public class Line implements Shape {
         return !a.equals(b);
     }
 
+    public static double calcDistance(Point a, Point b) {
+        double result;
+        double oneSide;
+        double secondSide;
+
+        oneSide = Math.pow((b.getX() - a.getX()), 2);
+        secondSide = Math.pow((b.getY() - a.getY()), 2);
+        result = Math.sqrt(oneSide + secondSide);
+
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
