@@ -2,7 +2,7 @@ package com.epam.jwd;
 
 import java.util.Objects;
 
-public class Square implements Figure{
+public class Square implements Figure {
     private Point a;
     private Point b;
     private Point c;
@@ -15,7 +15,7 @@ public class Square implements Figure{
         this.d = d;
     }
 
-    public boolean isSquare(){
+    public boolean isSquare() {
         return false;
     }
 
@@ -41,20 +41,36 @@ public class Square implements Figure{
     public String toString() {
         return "Square{" +
                 "a=(" + a.getX() + ", " + a.getY() +
-                "), b=(" + b.getX() + ", " + b.getY()+
-                "), c=(" + c.getX() + ", " + c.getY()+
-                "), d=(" + d.getX() + ", " + d.getY()+
+                "), b=(" + b.getX() + ", " + b.getY() +
+                "), c=(" + c.getX() + ", " + c.getY() +
+                "), d=(" + d.getX() + ", " + d.getY() +
                 ")}";
     }
 
 
     @Override
     public double square() {
-        return 0;
+        double side = Line.calcDistance(a, b);
+        return Math.pow(side, 2);
     }
 
     @Override
     public boolean isExist() {
+        if (square() == 0) {
+            return false;
+        }
+        double sideOne = Line.calcDistance(a, b);
+        double sideTwo = Line.calcDistance(c, d);
+
+        double sideThree = Line.calcDistance(a, c);
+        double sideFour = Line.calcDistance(b, d);
+
+        double sideFive = Line.calcDistance(a, d);
+        double sideSix = Line.calcDistance(b, c);
+
+        if (sideOne == sideTwo && sideThree == sideFour && sideFive == sideSix) {
+            return true;
+        }
         return false;
     }
 }
