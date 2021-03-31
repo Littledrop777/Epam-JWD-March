@@ -1,4 +1,4 @@
-package com.epam.jwd;
+package com.epam.jwd.model;
 
 import java.util.Objects;
 
@@ -25,10 +25,9 @@ public class Triangle implements Figure {
         return square()!=0;
     }
 
-
     @Override
     public boolean isShape() {
-        return !a.equals(b) && !b.equals(c) && !a.equals(c);
+        return a.equals(b) || b.equals(c) || a.equals(c);
     }
 
     @Override

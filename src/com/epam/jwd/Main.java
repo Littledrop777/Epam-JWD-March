@@ -1,5 +1,6 @@
 package com.epam.jwd;
 
+import com.epam.jwd.model.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,7 +29,7 @@ public class Main {
         lines[1] = shape.createLine(shape.createPoint(6, 2), shape.createPoint(6, 2));
 
         for (Shape line : lines) {
-            if (!line.isShape()) {
+            if (line.isShape()) {
                 LOGGER.error("Is not a figure");
             } else {
                 LOGGER.info(line);
@@ -42,7 +43,7 @@ public class Main {
                 shape.createPoint(-4, -1), shape.createPoint(6, -8), shape.createPoint(0, 5));
 
         for (Figure triangle : triangles) {
-            if (!triangle.isShape()) {
+            if (triangle.isShape()) {
                 LOGGER.error("Is not a figure");
             } else if (!triangle.isExist()) {
                 LOGGER.error(String.format("Triangle %s cannot exist", triangle));
@@ -56,11 +57,11 @@ public class Main {
                 shape.createPoint(0, 9), shape.createPoint(-2, 4),
                 shape.createPoint(5, -11), shape.createPoint(-3, -3));
 
-        if (!squares[0].isShape()) {
+        if (squares[0].isShape()) {
             LOGGER.error("Is not a figure");
-        } else if(!squares[0].isExist()){
+        } else if (!squares[0].isExist()) {
             LOGGER.error(String.format("Square %s is not a figure", squares[0]));
-        }else{
+        } else {
             LOGGER.info(squares[0]);
         }
 

@@ -1,4 +1,9 @@
-package com.epam.jwd;
+package com.epam.jwd.model;
+
+import com.epam.jwd.model.Line;
+import com.epam.jwd.model.Point;
+import com.epam.jwd.model.Square;
+import com.epam.jwd.model.Triangle;
 
 public class FactoryShape {
 

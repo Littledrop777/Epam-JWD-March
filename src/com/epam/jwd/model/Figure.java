@@ -1,4 +1,4 @@
-package com.epam.jwd;
+package com.epam.jwd.model;
 
 public interface Figure extends Shape{
 
