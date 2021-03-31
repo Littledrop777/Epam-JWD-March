@@ -17,10 +17,6 @@ public class Square implements Figure {
         this.d = d;
     }
 
-    public boolean isSquare() {
-        return false;
-    }
-
     @Override
     public boolean isShape() {
         return a.equals(b) || b.equals(c) || c.equals(d) || a.equals(d);
@@ -41,6 +37,12 @@ public class Square implements Figure {
 
         Service.sort(sides);
         return sides[0] == sides[1] && sides[1] == sides[2] && sides[2] == sides[3] && sides[4] == sides[5];
+    }
+
+    @Override
+    public double square() {
+        double side = Service.calcDistance(a, b);
+        return Math.pow(side, 2);
     }
 
     @Override
@@ -66,12 +68,6 @@ public class Square implements Figure {
                 ")}";
     }
 
-
-    @Override
-    public double square() {
-        double side = Service.calcDistance(a, b);
-        return Math.pow(side, 2);
-    }
 
 
 }

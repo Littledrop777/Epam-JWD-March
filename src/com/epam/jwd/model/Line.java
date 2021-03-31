@@ -3,8 +3,8 @@ package com.epam.jwd.model;
 import java.util.Objects;
 
 public class Line implements Shape {
-    private Point a;
-    private Point b;
+    private final Point a;
+    private final Point b;
 
     public Line(Point a, Point b) {
         this.a = a;
@@ -15,8 +15,6 @@ public class Line implements Shape {
     public boolean isShape() {
         return a.equals(b);
     }
-
-
 
     @Override
     public boolean equals(Object o) {
@@ -35,7 +33,7 @@ public class Line implements Shape {
     public String toString() {
         return "Line{" +
                 "a=(" + a.getX() + ", " + a.getY() +
-                "), b=(" + b.getX() + ", " + b.getY()+
+                "), b=(" + b.getX() + ", " + b.getY() +
                 ")}";
     }
 }
