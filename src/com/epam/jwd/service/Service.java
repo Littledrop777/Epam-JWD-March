@@ -26,7 +26,7 @@ public class Service {
         } while (check);
     }
 
-    public static double calcDistance(Point a, Point b) {
+    public static double calcLength(Point a, Point b) {
         double result;
         double oneSide;
         double secondSide;

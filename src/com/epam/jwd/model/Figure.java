@@ -1,8 +1,26 @@
 package com.epam.jwd.model;
 
-public interface Figure extends Shape{
+import java.util.Arrays;
 
-    double square();
-    boolean isExist();
+public abstract class Figure {
 
+    private final Point[] points;
+
+    protected Figure(Point[] points) {
+        this.points = points;
+    }
+
+    public Point[] getPoints() {
+        return points;
+    }
+
+    public Point getPoint(int index) {
+        return points[index];
+    }
+
+    public String toString() {
+        return "{" +
+                "points=" + Arrays.toString(points) +
+                '}';
+    }
 }
