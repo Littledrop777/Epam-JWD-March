@@ -9,6 +9,8 @@ import com.epam.jwd.validation.MultiAngleValidation;
 import com.epam.jwd.validation.SquareValidation;
 import com.epam.jwd.validation.TriangleValidation;
 
+import java.util.Objects;
+
 public class FigureExistencePostProcessor implements FigurePostProcessor {
 
     private static FigureExistencePostProcessor instance;
@@ -24,32 +26,32 @@ public class FigureExistencePostProcessor implements FigurePostProcessor {
         return instance;
     }
 
-    FigureValidation validation;
-
     @Override
-    public Figure postProcess(Figure figure) throws FigureException {
-        int pointsAmount = figure.getPoints().length;
+    public void postProcess(Figure figure) throws FigureException {
 
-        switch (pointsAmount) {
-            case 3:
+        if (Objects.isNull(figure)) {
+            throw new FigureNotExistException("Figure is null");
+        }
+        FigureValidation validation;
+        switch (figure.getType()) {
+            case TRIANGLE:
                 validation = TriangleValidation.getInstance();
-                break;
-            case 4:
-                validation = SquareValidation.getInstance();
-                break;
-            default:
-                if (pointsAmount > 4) {
-                    validation = MultiAngleValidation.getInstance();
-                    break;
-                } else {
-                    throw new FigureNotExistException("Unknown figure " + figure);
+                if (!validation.validate(figure)) {
+                    throw new FigureNotExistException("Figure does not exist " + figure);
                 }
+                break;
+            case SQUARE:
+                validation = SquareValidation.getInstance();
+                if (!validation.validate(figure)) {
+                    throw new FigureNotExistException("Figure isn't a square " + figure);
+                }
+                break;
+            case MULTI_ANGLE:
+                validation = MultiAngleValidation.getInstance();
+                if (!validation.validate(figure)) {
+                    throw new FigureNotExistException("Figure does not exist " + figure);
+                }
+                break;
         }
-
-        if (!validation.validate(figure)) {
-            throw new FigureNotExistException("Figure doesn't exist " + figure);
-        }
-
-        return figure;
     }
 }

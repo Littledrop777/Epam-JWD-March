@@ -5,5 +5,6 @@ import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
 
 public interface FigurePreProcessor {
-    void preProcess(FigureType type, Point... points)throws FigureException;
+
+    void process(FigureType type, Point... points) throws FigureException;
 }

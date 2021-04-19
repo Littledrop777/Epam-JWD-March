@@ -1,29 +1,22 @@
 package com.epam.jwd.strategy;
 
 import com.epam.jwd.model.Point;
-import com.epam.jwd.model.Square;
-import com.epam.jwd.service.Service;
+import com.epam.jwd.service.Util;
 
-public enum SquareFigureService implements FigurePropertiesStrategy<Square> {
+public enum SquareFigureService implements FigurePropertiesStrategy {
 
     INSTANCE;
 
     @Override
-    public double area(Square figure) {
-        double result;
-        Point a = figure.getPoint(0);
-        Point b = figure.getPoint(1);
-        result = Math.pow(Service.calcLength(a, b), 2);
+    public double area(Point... points) {
 
-        return result;
+        return Math.pow(Util.calcLength(points[0], points[1]), 2);
     }
 
     @Override
-    public double perimeter(Square figure) {
-        Point a = figure.getPoint(0);
-        Point b = figure.getPoint(1);
+    public double perimeter(Point... points) {
 
-        return Service.calcLength(a, b) * 4;
+        return Util.calcLength(points[0], points[1]) * 4;
     }
 
 

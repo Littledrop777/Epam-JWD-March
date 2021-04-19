@@ -19,10 +19,10 @@ public class MultiAngleValidation implements FigureValidation<MultiAngle> {
         return instance;
     }
 
-    FigurePropertiesStrategy<MultiAngle> data = MultiAngleFigureService.getInstance();
+    FigurePropertiesStrategy data = MultiAngleFigureService.getInstance();
 
     @Override
     public boolean validate(MultiAngle figure) {
-        return data.area(figure) != 0;
+        return !(data.area(figure.getPoints()) == 0);
     }
 }

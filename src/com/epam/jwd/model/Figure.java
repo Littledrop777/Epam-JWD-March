@@ -1,26 +1,18 @@
 package com.epam.jwd.model;
 
-import java.util.Arrays;
+public interface Figure {
 
-public abstract class Figure {
+    FigureType getType();
 
-    private final Point[] points;
+    Point[] getPoints();
 
-    protected Figure(Point[] points) {
-        this.points = points;
-    }
+    Point getPoint(int index);
 
-    public Point[] getPoints() {
-        return points;
-    }
+    void setId();
 
-    public Point getPoint(int index) {
-        return points[index];
-    }
+    int getID();
 
-    public String toString() {
-        return "{" +
-                "points=" + Arrays.toString(points) +
-                '}';
-    }
+    double getArea();
+
+    double getPerimeter();
 }

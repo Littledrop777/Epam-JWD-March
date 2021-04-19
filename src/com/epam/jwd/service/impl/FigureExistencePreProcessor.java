@@ -4,6 +4,7 @@ import com.epam.jwd.exception.FigureNotExistException;
 import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
 import com.epam.jwd.service.FigurePreProcessor;
+import com.epam.jwd.service.Util;
 
 public class FigureExistencePreProcessor implements FigurePreProcessor {
     private static FigureExistencePreProcessor instance;
@@ -20,8 +21,8 @@ public class FigureExistencePreProcessor implements FigurePreProcessor {
     }
 
     @Override
-    public void preProcess(FigureType type, Point... points) throws FigureNotExistException {
-        if (!valid(points)) {
+    public void process(FigureType type, Point... points) throws FigureNotExistException {
+        if (!Util.valid(points)) {
             throw new FigureNotExistException("Object is not a figure " + type);
         }
         int size = points.length;
@@ -51,14 +52,4 @@ public class FigureExistencePreProcessor implements FigurePreProcessor {
         }
     }
 
-    private static boolean valid(Point... points) {
-        for (int i = 0; i < points.length - 1; i++) {
-            for (int j = i + 1; j < points.length; j++) {
-                if (points[i].equals(points[j])) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
 }

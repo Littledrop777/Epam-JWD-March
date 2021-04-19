@@ -1,10 +1,9 @@
 package com.epam.jwd.strategy;
 
 import com.epam.jwd.model.Point;
-import com.epam.jwd.model.Triangle;
-import com.epam.jwd.service.Service;
+import com.epam.jwd.service.Util;
 
-public class TriangleFigureService implements FigurePropertiesStrategy<Triangle> {
+public class TriangleFigureService implements FigurePropertiesStrategy{
 
     private static TriangleFigureService triangle_instance;
 
@@ -21,26 +20,26 @@ public class TriangleFigureService implements FigurePropertiesStrategy<Triangle>
 
 
     @Override
-    public double area(Triangle figure) {
+    public double area(Point... points) {
         double result;
-        Point a = figure.getPoint(0);
-        Point b = figure.getPoint(1);
-        Point c = figure.getPoint(2);
+        Point a = points[0];
+        Point b = points[1];
+        Point c = points[2];
         // s = Math.abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1)) / 2;
         result = Math.abs((b.getX() - a.getX()) * (c.getY() - a.getY()) - (c.getX() - a.getX()) * (b.getY() - a.getY())) / 2;
         return result;
     }
 
     @Override
-    public double perimeter(Triangle figure) {
+    public double perimeter(Point... points) {
 
-        Point a = figure.getPoint(0);
-        Point b = figure.getPoint(1);
-        Point c = figure.getPoint(2);
+        Point a = points[0];
+        Point b = points[1];
+        Point c = points[2];
 
-        double ab = Service.calcLength(a, b);
-        double bc = Service.calcLength(b, c);
-        double ac = Service.calcLength(a, c);
+        double ab = Util.calcLength(a, b);
+        double bc = Util.calcLength(b, c);
+        double ac = Util.calcLength(a, c);
 
         return ab + bc + ac;
     }

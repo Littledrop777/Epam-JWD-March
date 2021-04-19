@@ -1,15 +1,18 @@
 package com.epam.jwd.model;
 
-import com.epam.jwd.strategy.FigurePropertiesStrategy;
+import com.epam.jwd.strategy.TriangleFigureService;
 
-public class Triangle extends Figure {
+import java.util.Arrays;
+
+public class Triangle extends AbstractFigure {
 
     Triangle(Point[] points) {
-        super(points);
+        super(FigureType.TRIANGLE, points, TriangleFigureService.getInstance());
     }
 
     @Override
     public String toString() {
-        return "Triangle{} " + super.toString();
+        return "Triangle id=" + getID() + " {" + Arrays.toString(getPoints()) + '}';
     }
+
 }

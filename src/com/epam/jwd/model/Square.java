@@ -1,15 +1,17 @@
 package com.epam.jwd.model;
 
-import com.epam.jwd.strategy.FigurePropertiesStrategy;
+import com.epam.jwd.strategy.SquareFigureService;
 
-public class Square extends Figure {
+import java.util.Arrays;
+
+public class Square extends AbstractFigure {
 
     public Square(Point[] points) {
-        super(points);
+        super(FigureType.SQUARE, points, SquareFigureService.INSTANCE);
     }
 
     @Override
     public String toString() {
-        return "Square{} " + super.toString();
+        return "Square id=" + getID() + " {" + Arrays.toString(getPoints()) + '}';
     }
 }

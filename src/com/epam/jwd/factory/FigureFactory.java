@@ -6,5 +6,6 @@ import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
 
 public interface FigureFactory {
-    Figure createFigure(FigureType type, Point[] figureConstituents) throws FigureException;
+    Figure createFigure(FigureType type, Point... figureConstituents) throws FigureException;
+
 }

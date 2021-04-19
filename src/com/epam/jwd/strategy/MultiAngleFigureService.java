@@ -1,8 +1,8 @@
 package com.epam.jwd.strategy;
 
-import com.epam.jwd.model.MultiAngle;
+import com.epam.jwd.model.Point;
 
-public class MultiAngleFigureService implements FigurePropertiesStrategy<MultiAngle> {
+public class MultiAngleFigureService implements FigurePropertiesStrategy {
     private static MultiAngleFigureService instance;
 
     private MultiAngleFigureService() {
@@ -17,13 +17,13 @@ public class MultiAngleFigureService implements FigurePropertiesStrategy<MultiAn
     }
 
     @Override
-    public double area(MultiAngle figure) {
+    public double area(Point... points) {
         return 1;
     }
 
     @Override
-    public double perimeter(MultiAngle figure) {
-        return 2;
+    public double perimeter(Point... points) {
+        return 1;
     }
 
 }

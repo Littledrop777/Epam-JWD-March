@@ -1,10 +1,10 @@
 package com.epam.jwd.strategy;
 
-import com.epam.jwd.model.Figure;
+import com.epam.jwd.model.Point;
 
-public interface FigurePropertiesStrategy<T extends Figure>{
-    double area(T figure);
+public interface FigurePropertiesStrategy {
+    double area(Point... points);
 
-    double perimeter(T figure);
+    double perimeter(Point... points);
 
 }

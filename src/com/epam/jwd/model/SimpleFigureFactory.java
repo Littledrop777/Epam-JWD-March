@@ -4,7 +4,8 @@ import com.epam.jwd.exception.FigureException;
 import com.epam.jwd.exception.FigureNotExistException;
 import com.epam.jwd.factory.FigureFactory;
 
-public class SimpleFigureFactory implements FigureFactory {
+public enum SimpleFigureFactory implements FigureFactory {
+    INSTANCE;
 
     @Override
     public Figure createFigure(FigureType type, Point[] figureConstituents) throws FigureException {
@@ -13,7 +14,8 @@ public class SimpleFigureFactory implements FigureFactory {
 
         switch (type) {
             case LINE:
-                return new Line(figureConstituents);
+                figure = new Line(figureConstituents);
+                break;
             case TRIANGLE:
                 figure = new Triangle(figureConstituents);
                 break;

@@ -9,7 +9,7 @@ import com.epam.jwd.model.Point;
 public abstract class FigureFactoryDecorator implements FigureFactory {
     private final FigureFactory figureFactory;
 
-    FigureFactoryDecorator(FigureFactory figureFactory) {
+    public FigureFactoryDecorator(FigureFactory figureFactory) {
         this.figureFactory = figureFactory;
     }
 

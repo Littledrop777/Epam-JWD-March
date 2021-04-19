@@ -17,11 +17,12 @@ public class TriangleValidation implements FigureValidation<Triangle> {
         }
         return instance;
     }
-    FigurePropertiesStrategy<Triangle> data = TriangleFigureService.getInstance();
+
+    FigurePropertiesStrategy data = TriangleFigureService.getInstance();
 
     @Override
     public boolean validate(Triangle figure) {
-        return data.area(figure) != 0 ;
+        return !(data.area(figure.getPoints()) == 0);
     }
 
 }
